@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Name=Take a Break
+Exec=xdg-break
+Icon=alarm-symbolic
+Type=Application
+Comment=Script that sends a notification to remind you to take a break
+Terminal=false
+Categories=Utility;
+Keywords=Pomodoro;Break;
+Actions=quit;
+
+[Desktop Action quit]
+Exec=xdg-break -q
+Name=Quit
