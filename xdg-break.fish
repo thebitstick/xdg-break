@@ -21,7 +21,12 @@ function usage
 end
 
 function version
-	echo "$basename 0.0.1"
+	echo "$basename 0.1.1"
+end
+
+if ! command -q notify-send
+	echo "$basename: notify-send not found in PATH. needed for notifications"
+	exit 1
 end
 
 for item in $argv
@@ -33,7 +38,7 @@ for item in $argv
 			version
 			exit 0
 		case "-q" "--quit"
-			set pid (ps -aux | grep xdg-break | grep fish | awk '{print $2}' | head -1)
+			set pid (ps -aux | grep xdg-break | grep fish | awk '{print $2}' | head -1) # I'm unable of finding a better way of handling this. Very sketchy.
 			if test $status -eq 1
 				echo "$basename: no running instances found"
 				exit 1
